@@ -2,6 +2,9 @@ import java.io.File;
 import java.net.URL;
 
 import org.bizobj.jetty.ContextStarter;
+import org.eclipse.jetty.util.resource.FileResource;
+import org.eclipse.jetty.util.resource.Resource;
+import org.eclipse.jetty.util.resource.ResourceCollection;
 
 /**
  * Start the test App.
@@ -10,18 +13,17 @@ import org.bizobj.jetty.ContextStarter;
 public class StartApp {
 
     public static void main(String[] args) throws Exception {
-    	System.setProperty(ContextStarter.VAR_CTX_PATH, "ftp");
+    	System.setProperty(ContextStarter.VAR_CTX_PATH, "pf");
     	
-        //log4j.properties (As a place-holder) should be compiled into main-project/target/classes ...
-    	URL holder = StartApp.class.getResource("/log4j.properties");
+        //bizobj-portofino-test-StartApp.properties (As a place-holder) should be compiled into test-project/target/classes ...
+    	URL holder = StartApp.class.getResource("/bizobj-portofino-test-StartApp.properties");
         File fh = new File(holder.toURI());
-        String warFolder = fh.getParentFile().getParentFile().getParentFile().getCanonicalPath() + "/src/main/webapp";
-        String serverBase = fh.getParentFile().getParentFile().getCanonicalPath();
-    	//Set ftp port to 2121
-    	System.setProperty("org.bizobj.ftp.server.CONFIG_Port", "2121");
-    	//Set ftp base folder
-    	System.setProperty("org.bizobj.ftp.server.CONFIG_FtpBase", serverBase);
-        //Start App ...
-        ContextStarter.startServer(warFolder);
+        //find the root of main and test project
+        String root = fh.getParentFile().getParentFile().getParentFile().getParentFile().getCanonicalPath();
+        //define the war resource
+        Resource testWar = new FileResource(new File(root + "/test-project/src/main/webapp").toURI());
+        Resource mainWar = new FileResource(new File(root + "/main-project/src/main/webapp").toURI());
+        Resource rc = new ResourceCollection(testWar, mainWar);
+        ContextStarter.startServer(rc, new File(root + "/test-project/src/main/webapp/WEB-INF/web.xml"));
     }
 }
