@@ -13,7 +13,7 @@ import org.eclipse.jetty.util.resource.ResourceCollection;
 public class StartApp {
 
     public static void main(String[] args) throws Exception {
-    	System.setProperty(ContextStarter.VAR_CTX_PATH, "pf");
+    	System.setProperty(ContextStarter.VAR_CTX_PATH, "p4test");
     	
         //bizobj-portofino-test-StartApp.properties (As a place-holder) should be compiled into test-project/target/classes ...
     	URL holder = StartApp.class.getResource("/bizobj-portofino-test-StartApp.properties");

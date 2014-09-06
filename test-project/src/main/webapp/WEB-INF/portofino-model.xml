@@ -1,2 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<model />
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model>
+    <databases>
+        <database databaseName="portofino">
+            <jdbcConnection driver="org.apache.derby.jdbc.EmbeddedDriver" password="bizobj" url="jdbc:derby:memory:portofinoDB;create=true" username="bizobj"/>
+            <schemas>
+                <schema schemaName="APP">
+                    <tables/>
+                </schema>
+            </schemas>
+        </database>
+    </databases>
+</model>

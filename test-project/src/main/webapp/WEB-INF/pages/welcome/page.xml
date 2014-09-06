@@ -1,6 +1,10 @@
-<page description="Homepage" id="zpAUFstfgEUSzsEX9HoO" title="Homepage">
-    <permissions />
-    <layout>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page description="Homepage" id="zpAUFstfgEUSzsEX9HoO" navigationRoot="INHERIT" title="Homepage">
+    <detailLayout template="default">
+        <childPages/>
+    </detailLayout>
+    <layout template="default">
         <childPages/>
     </layout>
+    <permissions/>
 </page>

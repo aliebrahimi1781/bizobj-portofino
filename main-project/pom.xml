@@ -10,7 +10,6 @@
     </parent>
     <groupId>org.bizobj</groupId>
     <artifactId>bizobj-portofino</artifactId>
-    <packaging>war</packaging>
     <version>20140906</version>
     <dependencies>
         <!-- Support for page actions. -->

@@ -1,11 +1,15 @@
-<page id="root" description="portofino 4" title="Portofino4" navigationRoot="GHOST_ROOT">
-    <permissions>
-        <group level="VIEW" name="all"/>
-    </permissions>
-    <layout>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<page description="portofino 4" id="root" navigationRoot="GHOST_ROOT" title="Portofino4">
+    <detailLayout template="default">
+        <childPages/>
+    </detailLayout>
+    <layout template="default">
         <childPages>
             <childPage name="welcome" showInNavigation="true"/>
             <childPage name="login" showInNavigation="false"/>
         </childPages>
     </layout>
+    <permissions>
+        <group level="VIEW" name="all"/>
+    </permissions>
 </page>
